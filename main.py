@@ -23,6 +23,14 @@ except Exception as e:
 class PredictionRequest(BaseModel):
     comment: str
 
+@app.get("/")
+def root():
+    return {
+        "message": "Comment Category Prediction API",
+        "status": "running",
+        "docs": "/docs",
+        "health": "/health"
+    }
 
 @app.get("/health")
 def health():
